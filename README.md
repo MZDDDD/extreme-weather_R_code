@@ -28,7 +28,6 @@ The code has been tested on:
 ### Required R Packages
 
 Please install the following R packages before running the demo:
-```r
 install.packages(c(
   "dplyr",
   "tidyverse",
@@ -38,8 +37,7 @@ install.packages(c(
   "gnm",
   "mixmeta",
   "dlnm",
-  "gtools"
-))
+  "gtools"))
 Typical installation time on a standard desktop computer:< 5 minutes
 
 2. Installation Guide
@@ -99,5 +97,7 @@ This software is released under the MIT License.
 
 7. Code Availability
 The code and demonstration dataset are publicly available at:
+
+https://github.com/MZDDDD/extreme-weather_R_code.git
 
 The repository contains a one-click script (run_demo.R) to reproduce the main analytical workflow and generate all expected outputs.
