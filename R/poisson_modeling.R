@@ -1,4 +1,4 @@
-run_poisson <- function(dt_ew_d, dt_cv, lag_n, disease_name = "FLU") {
+run_poisson <- function(dt_ew_d, dt_cv, lag_n, disease_name="FLU") {
 
   qaic <- function(model){
     loglik <- sum(dpois(model$y, model$fitted.values, log = TRUE))
@@ -217,6 +217,7 @@ for(jj in 1:ncol(lag_n)){
 }
   return(list(coef_m = coef_m, meta_m = meta_m))
 }
+
 
 
 
