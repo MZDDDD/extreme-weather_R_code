@@ -6,9 +6,19 @@ source("R/poisson_modeling.R")
 source("R/3.meta_analysis.R")
 source("R/AF_calculation.R")
 
-dat          <- prepare_data()
-poisson_res  <- run_poisson(dat)
-meta_res     <- run_meta(poisson_res)
-af_res       <- calc_af(meta_res)
+prep <- prepare_data()
 
-write.csv(af_res,"output/AF_demo_results.csv",row.names=FALSE)
+pois <- run_poisson(
+  dt_ew_d = prep$dt_ew_d,
+  dt_cv   = prep$dt_cv,
+  lag_n   = prep$lag_n,
+  disease_name = "FLU"
+)
+
+meta <- run_meta(pois$meta_m)     # meta_analysis
+af   <- calc_af(meta)            # AF 
+
+write.csv(pois$coef_m, "output/poisson_coef_demo.csv", row.names=FALSE)
+write.csv(pois$meta_m, "output/poisson_meta_input_demo.csv", row.names=FALSE)
+write.csv(meta,        "output/meta_demo.csv", row.names=FALSE)
+write.csv(af,          "output/af_demo.csv", row.names=FALSE)
