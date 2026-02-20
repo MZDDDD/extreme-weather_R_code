@@ -15,9 +15,9 @@ n <- 100 #city-filter threhold, VB-ZDs = 100 other 1000
 lag_n <- t(data.frame(c(1,2,3,4,5))) #VB-ZDs:t(data.frame(c(4,8,16,20,24)));lag
 #path
 
-dir_ew<- "D:/extreme weather/极端天气论文/投稿ncc0124/R_code/data/"
-dir_d <- "D:/extreme weather/极端天气论文/投稿ncc0124/R_code/data/"
-dir_cv<-"D:/extreme weather/极端天气论文/投稿ncc0124/R_code/data/"
+dir_ew<- "demo_data/"
+dir_d <- "demo_data/"
+dir_cv<-"demo_data/"
 
 
 name_ew <- "ex_weather.csv" #weather data file name
@@ -99,4 +99,5 @@ dt_ew_d <- merge(dt_ew,dt_d,by = c("X","X"),all.x = TRUE)%>%
   merge(.,Date_cov_holidays,by.x = "date",by.y="date",all.x = TRUE)%>%
   filter(citycode %in% city_code)  
   
+
 
