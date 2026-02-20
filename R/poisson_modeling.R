@@ -31,7 +31,9 @@ dt_ew_1_inf<-dt_ew_d %>%
   filter(p1>0) %>%
   select(citycode,yearweek,p1)%>% 
   mutate(week = as.numeric(str_sub(yearweek,6,7)))
-if(nrow(dt_ew_1_inf)==0){next}
+if (nrow(dt_ew_1_inf) == 0) {
+  return(list(coef_m = NULL, meta_m = NULL))
+}
 v_ew_1_week<-sort(unique(as.numeric(str_sub(dt_ew_1_inf$yearweek,6,7)))) 
 
 dt_ew_0_sup<-dt_ew_d %>% 
@@ -215,6 +217,7 @@ for(jj in 1:ncol(lag_n)){
 }
   return(list(coef_m = coef_m, meta_m = meta_m))
 }
+
 
 
 
