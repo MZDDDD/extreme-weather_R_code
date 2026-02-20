@@ -1,24 +1,22 @@
-run_poisson <- function(dat){
-qaic <- function(model){
-  loglik <- sum(dpois(model$y, model$fitted.values, log = TRUE))
-  phi <- summary(model)$dispersion
-  qaic0 <- -2 * loglik + 2 * phi * summary(model)$df[3]
-  return(qaic0)
-}
+run_poisson <- function(dt_ew_d, dt_cv, lag_n, disease_name = "FLU") {
 
-fx <- as.formula(case_wn~offset(log(pop))+ew_lag_01+legal_holidays+
-                   gdp+pd+cov_index) 
-#VB-ZDs:case_wn~offset(log(pop))+ew_lag_01+legal_holidays+gdp+pd+NDVI+cov_index+
-########Cropland_per+Forest_per+Shrub_per+Grassland_per+Impervious_per+soil.moisture
-#RDs:case_wn~offset(log(pop))+ew_lag_01+lag_case+legal_holidays+gdp+pd+cov_index
-library(magrittr)
-library(dplyr)
-library(stringr)
-library(tidyverse)
-library(lubridate)
-library(stringr)
-library(gnm)
-library(mixmeta)
+  qaic <- function(model){
+    loglik <- sum(dpois(model$y, model$fitted.values, log = TRUE))
+    phi <- summary(model)$dispersion
+    qaic0 <- -2 * loglik + 2 * phi * summary(model)$df[3]
+    return(qaic0)
+  }
+
+  fx <- as.formula(case_wn~offset(log(pop))+ew_lag_01+legal_holidays+
+                     gdp+pd+cov_index)
+
+  library(magrittr)
+  library(dplyr)
+  library(stringr)
+  library(tidyverse)
+  library(lubridate)
+  library(gnm)
+  library(mixmeta)
 
 dt_d <- dt_ew_d
 dt_ew_d <- dt_d%>%
@@ -215,10 +213,9 @@ for(jj in 1:ncol(lag_n)){
   coef_m$p[jj]       <- p
   coef_m$Qaic[jj]    <- Qaic
 }
-return(poisson_res)
+  return(list(coef_m = coef_m, meta_m = meta_m))
 }
 
-  
 
 
 
