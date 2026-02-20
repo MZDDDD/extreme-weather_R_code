@@ -1,3 +1,5 @@
+run_meta <- function(meta_m) {
+
 library(magrittr)
 library(dplyr)
 library(stringr)
@@ -40,3 +42,5 @@ RR_all1 <- as.data.frame(t(m_m_s_coef)) %>%
   mutate(type = "RDs",
          name = "FLU")
 names(RR_all1) <- c("RRall","RRalllow","RRallhigh","p_value","type","name")
+return(meta_res)
+}
