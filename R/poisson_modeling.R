@@ -1,4 +1,4 @@
-run_poisson <- function(data_paths = list(), params = list()) {
+run_poisson <- function(dat){
 qaic <- function(model){
   loglik <- sum(dpois(model$y, model$fitted.values, log = TRUE))
   phi <- summary(model)$dispersion
@@ -215,10 +215,11 @@ for(jj in 1:ncol(lag_n)){
   coef_m$p[jj]       <- p
   coef_m$Qaic[jj]    <- Qaic
 }
-  return(poisson_res)
+return(poisson_res)
 }
 
   
+
 
 
 
