@@ -97,11 +97,14 @@ prepare_data <- function(
 
   # ---- return everything needed downstream ----
   return(list(
-    dt_ew   = dt_ew, 
+    dt_ew   = dt_ew,    
+    dt_d    = dt_d,     
+    Date    = Date,    
     dt_ew_d = dt_ew_d,
     dt_cv   = dt_cv,
     lag_n   = lag_n,
     n       = n
   ))
 }
+
 
