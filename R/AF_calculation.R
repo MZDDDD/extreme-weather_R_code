@@ -1,4 +1,4 @@
-
+calc_af <- function(meta_res, params = list()) {
 #######
 library(magrittr)
 library(dplyr)
@@ -80,4 +80,6 @@ dt_all_inf<-dt_all_inf1 %>%
           all_influ_case = ifelse(is.na(all_influ_case),0,all_influ_case)) %>%
   mutate(AF = all_influ_case/all_case)
 
+return(af_res)
+}
 
