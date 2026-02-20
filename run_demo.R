@@ -15,7 +15,7 @@ pois <- run_poisson(
 )
 
 
-meta_res <- run_meta(pois$meta_m)
+meta <- run_meta(pois$meta_m, disease_name="FLU", type="RDs")
 
 
 af_res <- calc_af(meta_res)
