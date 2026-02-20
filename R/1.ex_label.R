@@ -11,8 +11,8 @@ library(zoo)
 library(officer) 
 library(carData)
 
-dir_ew_origin <- paste0("D:/extreme weather/极端天气论文/投稿ncc0124/R_code/data/")
-dir_save <- "D:/extreme weather/极端天气论文/投稿ncc0124/R_code/data/" 
+dir_ew_origin <- paste0("demo_data/")
+dir_save <- "demo_data/" 
 
 name_ew_origin <- paste0("pre_data.csv")
 
@@ -99,6 +99,7 @@ for(i3 in 2:length(city_code_all)){
 
 write.csv(aim_dt,file = paste0(dir_save,".csv"))
  
+
 
 
 
