@@ -215,9 +215,10 @@ for(jj in 1:ncol(lag_n)){
   coef_m$p[jj]       <- p
   coef_m$Qaic[jj]    <- Qaic
 }
+  return(poisson_res)
 }
-return(poisson_res)
 
   
+
 
 
