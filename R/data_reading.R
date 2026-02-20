@@ -1,3 +1,4 @@
+prepare_data <- function(){
 library(magrittr)
 library(dplyr)
 library(lubridate) 
@@ -99,5 +100,7 @@ dt_ew_d <- merge(dt_ew,dt_d,by = c("X","X"),all.x = TRUE)%>%
   merge(.,Date_cov_holidays,by.x = "date",by.y="date",all.x = TRUE)%>%
   filter(citycode %in% city_code)  
   
+return(dat)
+}
 
 
